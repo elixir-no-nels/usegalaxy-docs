@@ -17,7 +17,7 @@ usegalaxy.no is the national Norwegian bioinformatics infrastructure for providi
    :caption: Contents:
 
    architecture
-
+   deployment
 
 
 
