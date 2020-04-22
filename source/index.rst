@@ -15,16 +15,17 @@ usegalaxy.no is the national Norwegian bioinformatics infrastructure for providi
 .. toctree::
    :maxdepth: 1
    :caption: Contents:
+   :glob:
 
    architecture
    deployment
+   ansible
 
 
 
+..
+  Indices and tables
+  ==================
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`search`
+  * :ref:`genindex`
+  * :ref:`search`
