@@ -59,14 +59,11 @@ Deploying an infrastructure
   # deploy the database server
   ansible-playbook database.yml
 
-  # deploy the galaxy frontend server with jenkins
-  ansible-playbook galaxy.yml
-  ansible-playbook jenkins.yml
-  ansible-playbook tools.yml
-
-
   # deploy the local slurm compute node
   ansible-playbook slurm.yml
+
+  # deploy the galaxy frontend server
+  ansible-playbook  --extra-vars "__galaxy_dir_perms='0755'" galaxy.yml
 
   # deploy the elastic nrec compute node
   ansible-playbook ehos.yml
