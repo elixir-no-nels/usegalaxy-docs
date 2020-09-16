@@ -2,8 +2,9 @@ Deployment of usegalaxy
 =======================
 
 
-The usegalaxy.no infrastructure is orchestrated by a set of ansible playbooks. These playbooks define and control
-all software and configurations used by the usegalaxy.no setup.
+The usegalaxy.no infrastructure is orchestrated by a set of ansible playbooks,
+heavily inspired by the `Galaxy training project <https://training.galaxyproject.org>`__.
+These playbooks define and control all software and configurations used by the usegalaxy.no setup.
 
 There are three set of playbooks collections:
 
