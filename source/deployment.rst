@@ -27,6 +27,12 @@ Initial setup
 
   cd infrastructure-playbook
 
+  # setup the pre-commit hook that ensures no unencrypted vault-files
+  # are commited
+  cp pre-commit .git/hooks/
+  chmod 755 .git/hooks/pre-commit
+  
+
   # setup and activate a virtual environment
   python3 -m venv venv
   source venv/bin/activate

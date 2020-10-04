@@ -99,32 +99,32 @@ Ensure no unencrypted vault-files are commited
    chmod 755 .git/hooks/pre-commit
 
 
-```
-#!/usr/bin/env bash
-#
-# Called by "git commit" with no arguments.  The hook should
-# exit with non-zero status after issuing an appropriate message if
-# it wants to stop the commit.
+.. code-block:: bash
+    #!/usr/bin/env bash
+    #
+    # Called by "git commit" with no arguments.  The hook should
+    # exit with non-zero status after issuing an appropriate message if
+    # it wants to stop the commit.
 
-# Unset variables produce errors
-set -u
+    # Unset variables produce errors
+    set -u
 
-if git rev-parse --verify HEAD >/dev/null 2>&1
-then
+    if git rev-parse --verify HEAD >/dev/null 2>&1
+    then
 	against=HEAD
-else
+    else
 	# Initial commit: diff against an empty tree object
 	against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
-fi
+    fi
 
-# Redirect output to stderr.
-exec 1>&2
+    # Redirect output to stderr.
+    exec 1>&2
 
-EXIT_STATUS=0
+    EXIT_STATUS=0
 
-# Check that all changed *.vault files are encrypted
-# read: -r do not allow backslashes to escape characters; -d delimiter
-while IFS= read -r -d $'\0' file; do
+    # Check that all changed *.vault files are encrypted
+    # read: -r do not allow backslashes to escape characters; -d delimiter
+    while IFS= read -r -d $'\0' file; do
 	[[ "$file" != *.vault && "$file" != *.vault.yml ]] && continue
 	# cut gets symbols 1-2
 	file_status=$(git status --porcelain -- "$file" 2>&1 | cut -c1-2)
@@ -141,11 +141,9 @@ while IFS= read -r -d $'\0' file; do
 		echo "ERROR: non-encrypted *.vault file: $file"
 		EXIT_STATUS=1
 	}
-done < <(git diff --cached --name-only -z "$against")
+	done < <(git diff --cached --name-only -z "$against")
 
-exit $EXIT_STATUS
+	exit $EXIT_STATUS
 
-
-```
 
 
