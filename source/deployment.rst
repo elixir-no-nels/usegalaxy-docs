@@ -71,6 +71,8 @@ Deploying an infrastructure
   # deploy the orion cluster pulsar server
   ansible-playbook pulsar.yml
 
+  # install tools 
+  ansible-playbook tools.yml
 
 
 tools.yml
