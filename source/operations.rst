@@ -23,6 +23,18 @@ CVMFS add data to repo
   cvmfs_server abort
 
 
+Create singularity container from conda packages
+------------------------------------------------
+  
+.. code-block:: bash
+
+  ssh sysadmin@usegalaxy.no
+  sudo su -
+  . .venv/bin/activate
+  cd /data/part0/tmp/ # (or somewhere with enough free disk space)
+  mulled-build build-and-test 'graphicsmagick=1.3.31' -c iuc,conda-forge,bioconda --test 'ls --help' --singularity
+  cp singularity_import/graphicsmagick\:1.3.31 /srv/galaxy/containers/singularity/
+
 
 Rebuild galaxy client
 ----------------------
