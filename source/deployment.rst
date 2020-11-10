@@ -77,6 +77,9 @@ Deploying an infrastructure
 
   # deploy the orion cluster pulsar server
   ansible-playbook pulsar.yml
+  
+  # deploy the cvmfs server
+  ansible-playbook cvmfs-stratum0.yml
 
   # install tools 
   ansible-playbook tools.yml
