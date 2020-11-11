@@ -81,11 +81,12 @@ Deploying an infrastructure
   # deploy the cvmfs server
   ansible-playbook cvmfs-stratum0.yml
 
-  # install tools 
-  ansible-playbook tools.yml
+  # add public cvmfs key to env/[main|test]/group_vars/all.yml:cvmfs_keys
+  db$ cat /etc/cvmfs/keys/data.[test.]usegalaxy.no.pub
 
+  # rerun the cvmfs server playbook
+  ansible-playbook cvmfs-stratum0.yml
 
-tools.yml
-system.yml
-
+  # rerun the slurm playbook, to set the correct cvmfs public key
+  ansible-playbook slurm.yml
 
