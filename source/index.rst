@@ -22,6 +22,7 @@ usegalaxy.no is the national Norwegian bioinformatics infrastructure for providi
    ansible
    system
    operations
+   ecc
 
 
 
